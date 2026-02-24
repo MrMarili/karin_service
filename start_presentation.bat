@@ -1,6 +1,0 @@
-@echo off
-echo Setting up environment variables...
-set "PATH=%PATH%;C:\Program Files\nodejs"
-echo Starting Shomrat HaZorea Presentation...
-call npm run dev
-pause

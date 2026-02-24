@@ -13,9 +13,9 @@ import AllowanceTableSlide from './AllowanceTableSlide';
 import SummarySection from './SummarySection';
 
 // Imported Sales Slides (One Brand Context)
-import ProductsSlide from '../ProductsSlide';
-import StoreSlide from '../StoreSlide';
-import WebsiteSlide from '../WebsiteSlide';
+import ProductsSlide from './ProductsSlide';
+import StoreSlide from './StoreSlide';
+import WebsiteSlide from './WebsiteSlide';
 
 const ServiceApp = () => {
     const [currentStep, setCurrentStep] = useState(0);
