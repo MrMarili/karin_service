@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Heebo:wght@100;300;400;500;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Heebo", sans-serif;
+  --font-hand: "Amatic SC", cursive;
+
+  /* Brand Colors extracted from images */
+  --color-brand-yellow: #FFC845;
+  --color-brand-blue: #2A5CAA;
+  --color-brand-dark-blue: #1E5089;
+  --color-brand-green: #B5BD78;
+  --color-brand-light-blue: #70C0E8;
+  --color-brand-black: #222222;
+
+  /* Usage aliases */
+  --color-brand-primary: var(--color-brand-blue);
+  --color-brand-accent: var(--color-brand-yellow);
+}
+
+body {
+  direction: rtl;
+  font-family: var(--font-sans);
+  background-color: #f8f9fa;
+  color: var(--color-brand-black);
+  overflow-x: hidden;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Custom Utilities */
+@utility rtl {
+  direction: rtl;
+}
+
+@utility ltr {
+  direction: ltr;
+}
+
+@utility font-hand {
+  font-family: "Amatic SC", cursive;
+}
