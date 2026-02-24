@@ -49,13 +49,13 @@ const PersonaAvatars = ({ type, size = 120, label, className = "", delay = 0, dr
         <motion.div
             initial={dramaticEntry ? { opacity: 0, scale: 0 } : { opacity: 0, scale: 0.8 }}
             animate={dramaticEntry
-                ? { opacity: 1, scale: [0, 2.2, 2.2, 1] }
+                ? { opacity: [0, 1, 1, 0], scale: [0, 2.2, 2.2, 0.5] }
                 : { opacity: 1, scale: 1 }
             }
             transition={dramaticEntry
                 ? {
-                    duration: 5.6,
-                    times: [0, 0.2, 0.8, 1], // Stays big for ~3.5-4s
+                    duration: 4.5,
+                    times: [0, 0.1, 0.9, 1],
                     ease: "easeInOut"
                 }
                 : { delay, type: "spring", stiffness: 100 }

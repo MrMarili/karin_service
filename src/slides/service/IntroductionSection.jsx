@@ -26,10 +26,12 @@ const IntroductionSection = () => {
 
             for (let i = 0; i < teamMembers.length; i++) {
                 setActiveAnimatingIndex(i);
-                // Wait for the dramatic animation to complete (4s stay + entry/exit)
-                await new Promise(r => setTimeout(r, 6500));
+                // Wait for the staying phase (4s)
+                await new Promise(r => setTimeout(r, 4000));
                 setFinalGridVisible(prev => [...prev, teamMembers[i].type]);
                 if (i === teamMembers.length - 1) setActiveAnimatingIndex(-1);
+                // Short overlap before next one starts
+                await new Promise(r => setTimeout(r, 500));
             }
         };
 
@@ -122,7 +124,7 @@ const IntroductionSection = () => {
                 className="absolute inset-0 bg-[#0a192f]/95 backdrop-blur-2xl z-40 pointer-events-none"
             />
 
-            <main className="z-50 w-full max-w-7xl text-center flex flex-col h-full justify-between py-16 relative">
+            <main className="z-50 w-full max-w-7xl text-center flex flex-col h-full justify-between py-8 relative">
                 <div className="flex-1 flex flex-col justify-center items-center">
                     {/* Titles - dimmed when someone is animating */}
                     <motion.div
@@ -133,9 +135,9 @@ const IntroductionSection = () => {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 1.5, ease: "easeOut" }}
-                            className="mb-12 relative"
+                            className="mb-6 relative"
                         >
-                            <h1 className="text-7xl md:text-[8rem] font-black text-white leading-none tracking-tight drop-shadow-[0_0_50px_rgba(255,255,255,0.6)]">
+                            <h1 className="text-5xl md:text-[6.5rem] font-black text-white leading-none tracking-tight drop-shadow-[0_0_40px_rgba(255,255,255,0.5)]">
                                 צוות <span className="text-brand-yellow drop-shadow-[0_0_30px_rgba(255,200,69,0.5)]">החלומות</span>
                             </h1>
                             <motion.div
@@ -166,7 +168,7 @@ const IntroductionSection = () => {
                             stiffness: 30,
                             damping: 15
                         }}
-                        className={`bg-white/5 backdrop-blur-3xl p-12 md:p-20 rounded-[6rem] shadow-[0_0_80px_rgba(30,58,138,0.5)] border-2 border-white/20 space-y-12 w-full relative group ${activeAnimatingIndex !== -1 ? 'z-[110]' : 'z-10'}`}
+                        className={`bg-white/5 backdrop-blur-3xl p-8 md:p-12 rounded-[4rem] shadow-[0_0_60px_rgba(30,58,138,0.4)] border-2 border-white/20 space-y-8 w-full relative group ${activeAnimatingIndex !== -1 ? 'z-[110]' : 'z-10'}`}
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
 
@@ -218,9 +220,9 @@ const IntroductionSection = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: activeAnimatingIndex !== -1 ? 0.1 : 1 }}
                     transition={{ delay: 2, duration: 1.5 }}
-                    className="mt-8 group transition-opacity duration-700"
+                    className="mt-4 group transition-opacity duration-700"
                 >
-                    <span className="text-6xl md:text-[9rem] font-black text-white tracking-tighter opacity-40 group-hover:opacity-100 transition-opacity duration-700 drop-shadow-[0_0_50px_rgba(255,255,255,0.4)]">
+                    <span className="text-4xl md:text-[5.5rem] font-black text-white tracking-tighter opacity-40 group-hover:opacity-100 transition-opacity duration-700 drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]">
                         שמרת הזורע - סיפור אהבה ישראלי
                     </span>
                 </motion.div>
