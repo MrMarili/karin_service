@@ -47,19 +47,9 @@ const PersonaAvatars = ({ type, size = 120, label, className = "", delay = 0, dr
 
     return (
         <motion.div
-            initial={dramaticEntry ? { opacity: 0, scale: 0 } : { opacity: 0, scale: 0.8 }}
-            animate={dramaticEntry
-                ? { opacity: [0, 1, 1, 0], scale: [0, 2.2, 2.2, 0.5] }
-                : { opacity: 1, scale: 1 }
-            }
-            transition={dramaticEntry
-                ? {
-                    duration: 4.5,
-                    times: [0, 0.1, 0.9, 1],
-                    ease: "easeInOut"
-                }
-                : { delay, type: "spring", stiffness: 100 }
-            }
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay, type: "spring", stiffness: 100 }}
             whileHover={{ scale: 1.05 }}
             className={`flex flex-col items-center gap-3 ${className}`}
         >

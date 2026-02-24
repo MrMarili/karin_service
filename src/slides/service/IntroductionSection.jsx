@@ -26,12 +26,15 @@ const IntroductionSection = () => {
 
             for (let i = 0; i < teamMembers.length; i++) {
                 setActiveAnimatingIndex(i);
-                // Wait for the staying phase (4s)
-                await new Promise(r => setTimeout(r, 4000));
+                // Wait while the avatar is in the center showcase
+                await new Promise(r => setTimeout(r, 3000));
+
+                // Move it to the grid by switching states
                 setFinalGridVisible(prev => [...prev, teamMembers[i].type]);
-                if (i === teamMembers.length - 1) setActiveAnimatingIndex(-1);
-                // Short overlap before next one starts
-                await new Promise(r => setTimeout(r, 500));
+                setActiveAnimatingIndex(-1);
+
+                // Short break before starting the next one
+                await new Promise(r => setTimeout(r, 800));
             }
         };
 
@@ -175,11 +178,17 @@ const IntroductionSection = () => {
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center relative">
                             {teamMembers.map((persona, i) => (
                                 <div key={persona.type} className="relative">
-                                    {/* Final member in grid */}
+                                    {/* Final member in grid position */}
                                     {finalGridVisible.includes(persona.type) && (
                                         <motion.div
+                                            layoutId={`avatar-${persona.type}`}
                                             initial={{ opacity: 0, scale: 0.5 }}
                                             animate={{ opacity: 1, scale: 1 }}
+                                            transition={{
+                                                type: "spring",
+                                                stiffness: 40,
+                                                damping: 12
+                                            }}
                                             whileHover={{
                                                 scale: 1.15,
                                                 rotate: i % 2 === 0 ? 5 : -5,
@@ -197,17 +206,24 @@ const IntroductionSection = () => {
                                         </motion.div>
                                     )}
 
-                                    {/* The currently animating dramatic entry - Center of screen */}
+                                    {/* The active showcasing entry - Centered with same layoutId for shared animation */}
                                     {activeAnimatingIndex === i && (
                                         <div className="fixed inset-0 flex items-center justify-center z-[200] pointer-events-none">
-                                            <div className="scale-[1.8] md:scale-[2.2]"> {/* Base scale up for the showcase */}
+                                            <motion.div
+                                                layoutId={`avatar-${persona.type}`}
+                                                transition={{
+                                                    type: "spring",
+                                                    stiffness: 40,
+                                                    damping: 12
+                                                }}
+                                                className="scale-[2] md:scale-[2.5]"
+                                            >
                                                 <PersonaAvatars
                                                     type={persona.type}
                                                     size={120}
                                                     label={persona.label}
-                                                    dramaticEntry={true}
                                                 />
-                                            </div>
+                                            </motion.div>
                                         </div>
                                     )}
                                 </div>
