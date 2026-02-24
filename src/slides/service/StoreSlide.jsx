@@ -15,12 +15,12 @@ const StoreSlide = ({ onNavigate }) => {
                 <ArrowRight size={24} className="md:w-8 md:h-8" />
                 <span className="text-lg md:text-base">חזרה לתפריט</span>
             </button>
-            <h2 className="text-6xl md:text-[9rem] font-black mb-12 md:mb-16 text-center px-2">נראות הסניף החדשה</h2>
+            <h2 className="text-5xl md:text-[6rem] font-black mb-10 md:mb-12 text-center px-2">נראות הסניף החדשה</h2>
 
             <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
-                className="w-full max-w-7xl aspect-video bg-white/10 rounded-[3rem] md:rounded-[4rem] border-8 border-white/20 flex items-center justify-center backdrop-blur-sm shadow-[0_30px_100px_rgba(0,0,0,0.5)] overflow-hidden"
+                className="w-full max-w-6xl aspect-video bg-white/10 rounded-[3rem] border-4 border-white/20 flex items-center justify-center backdrop-blur-sm shadow-[0_30px_100px_rgba(0,0,0,0.5)] overflow-hidden"
             >
                 <img
                     src={storeRender}
@@ -29,7 +29,7 @@ const StoreSlide = ({ onNavigate }) => {
                 />
             </motion.div>
 
-            <p className="mt-12 md:mt-20 text-3xl md:text-5xl font-black max-w-5xl px-4 text-center leading-tight">
+            <p className="mt-8 md:mt-12 text-2xl md:text-4xl font-black max-w-4xl px-4 text-center leading-tight">
                 חללים פתוחים, מזמינים וביתיים - חווית קנייה שמרגישה כמו בבית.
             </p>
         </div>

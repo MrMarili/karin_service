@@ -17,62 +17,62 @@ const WebsiteSlide = ({ onNavigate }) => {
                 <ArrowRight size={32} />
                 <span>חזרה לתפריט</span>
             </button>
-            <h2 className="text-6xl md:text-[9rem] font-black text-white mb-8 md:mb-16 relative z-10">אתר ומדיה</h2>
+            <h2 className="text-5xl md:text-[6rem] font-black text-white mb-6 md:mb-10 relative z-10">אתר ומדיה</h2>
 
-            <div className="flex flex-col gap-8 md:gap-16 w-full max-w-[120rem] relative z-10 items-center justify-center overflow-y-auto md:overflow-visible h-[70vh] md:h-auto px-4 pb-20 md:pb-0 pt-16">
+            <div className="flex flex-col gap-6 md:gap-8 w-full max-w-[100rem] relative z-10 items-center justify-center h-auto md:h-auto px-4 pt-12">
 
                 {/* Row 1: Digital Presence */}
-                <div className="flex flex-col md:flex-row gap-8 md:gap-16 w-full justify-center h-auto md:h-[30rem] shrink-0">
+                <div className="flex flex-col md:flex-row gap-6 md:gap-8 w-full justify-center h-auto md:h-[22rem] shrink-0">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.1 }}
-                        className="flex-1 bg-white rounded-[4rem] shadow-3xl overflow-hidden border-8 border-white relative group h-[20rem] md:h-auto"
+                        className="flex-1 bg-white rounded-[3rem] shadow-2xl overflow-hidden border-4 border-white relative group h-[15rem] md:h-auto"
                     >
                         <img src={web1} alt="Website" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                         <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <span className="text-white text-5xl md:text-7xl font-black">האתר החדש</span>
+                            <span className="text-white text-3xl md:text-4xl font-black">האתר החדש</span>
                         </div>
                     </motion.div>
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.2 }}
-                        className="flex-1 bg-white rounded-[4rem] shadow-3xl overflow-hidden border-8 border-white relative group h-[20rem] md:h-auto"
+                        className="flex-1 bg-white rounded-[3rem] shadow-2xl overflow-hidden border-4 border-white relative group h-[15rem] md:h-auto"
                     >
                         <img src={web2} alt="Social" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                         <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <span className="text-white text-5xl md:text-7xl font-black">סושיאל מדיה</span>
+                            <span className="text-white text-3xl md:text-4xl font-black">סושיאל מדיה</span>
                         </div>
                     </motion.div>
                 </div>
 
                 {/* Row 2: Campaigns */}
-                <div className="flex flex-col md:flex-row gap-8 md:gap-16 w-full justify-center h-auto md:h-[30rem] shrink-0">
+                <div className="flex flex-col md:flex-row gap-6 md:gap-8 w-full justify-center h-auto md:h-[22rem] shrink-0">
                     {[campaign1, campaign2, campaign3].map((img, i) => (
                         <motion.div
                             key={i}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 + (i * 0.1) }}
-                            className="flex-1 bg-white rounded-[4rem] shadow-3xl overflow-hidden border-8 border-white relative group h-[20rem] md:h-auto"
+                            className="flex-1 bg-white rounded-[3rem] shadow-2xl overflow-hidden border-4 border-white relative group h-[15rem] md:h-auto"
                         >
                             <img src={img} alt={`Campaign ${i + 1}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                             <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <span className="text-white text-4xl md:text-6xl font-black">קמפיין {i + 1}</span>
+                                <span className="text-white text-2xl md:text-3xl font-black">קמפיין {i + 1}</span>
                             </div>
                         </motion.div>
                     ))}
                 </div>
             </div>
 
-            <div className="mt-12 md:mt-16 flex gap-12 text-white relative z-10">
-                <div className="flex items-center gap-4 text-3xl font-black bg-white/20 px-10 py-4 rounded-full border border-white/30">
-                    <Globe size={32} />
+            <div className="mt-8 md:mt-10 flex gap-8 text-white relative z-10">
+                <div className="flex items-center gap-4 text-2xl font-black bg-white/20 px-8 py-3 rounded-full border border-white/30">
+                    <Globe size={24} />
                     <span>חווית אונליין</span>
                 </div>
-                <div className="flex items-center gap-4 text-3xl font-black bg-white/20 px-10 py-4 rounded-full border border-white/30">
-                    <Megaphone size={32} />
+                <div className="flex items-center gap-4 text-2xl font-black bg-white/20 px-8 py-3 rounded-full border border-white/30">
+                    <Megaphone size={24} />
                     <span>קמפיינים בולטים</span>
                 </div>
             </div>

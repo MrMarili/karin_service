@@ -135,7 +135,7 @@ const IntroductionSection = () => {
                             transition={{ duration: 1.5, ease: "easeOut" }}
                             className="mb-12 relative"
                         >
-                            <h1 className="text-8xl md:text-[11rem] font-black text-white leading-none tracking-tight drop-shadow-[0_0_50px_rgba(255,255,255,0.6)]">
+                            <h1 className="text-7xl md:text-[8rem] font-black text-white leading-none tracking-tight drop-shadow-[0_0_50px_rgba(255,255,255,0.6)]">
                                 צוות <span className="text-brand-yellow drop-shadow-[0_0_30px_rgba(255,200,69,0.5)]">החלומות</span>
                             </h1>
                             <motion.div
@@ -149,7 +149,7 @@ const IntroductionSection = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6 }}
-                            className="text-3xl md:text-5xl font-bold text-cyan-100 mb-16 max-w-4xl drop-shadow-md"
+                            className="text-3xl md:text-4xl font-bold text-cyan-100 mb-8 max-w-4xl drop-shadow-md"
                         >
                             כמו בחלום הכי טוב שלנו... <br />
                             <span className="text-brand-yellow italic opacity-90">הכל מתחיל בצוות מנצח.</span>
@@ -198,7 +198,7 @@ const IntroductionSection = () => {
                                     {/* The currently animating dramatic entry - Center of screen */}
                                     {activeAnimatingIndex === i && (
                                         <div className="fixed inset-0 flex items-center justify-center z-[200] pointer-events-none">
-                                            <div className="scale-[2] md:scale-[3]"> {/* Base scale up for the showcase */}
+                                            <div className="scale-[1.8] md:scale-[2.2]"> {/* Base scale up for the showcase */}
                                                 <PersonaAvatars
                                                     type={persona.type}
                                                     size={120}
@@ -218,14 +218,14 @@ const IntroductionSection = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: activeAnimatingIndex !== -1 ? 0.1 : 1 }}
                     transition={{ delay: 2, duration: 1.5 }}
-                    className="mt-16 group transition-opacity duration-700"
+                    className="mt-8 group transition-opacity duration-700"
                 >
-                    <span className="text-7xl md:text-[12rem] font-black text-white tracking-tighter opacity-40 group-hover:opacity-100 transition-opacity duration-700 drop-shadow-[0_0_50px_rgba(255,255,255,0.4)]">
+                    <span className="text-6xl md:text-[9rem] font-black text-white tracking-tighter opacity-40 group-hover:opacity-100 transition-opacity duration-700 drop-shadow-[0_0_50px_rgba(255,255,255,0.4)]">
                         שמרת הזורע - סיפור אהבה ישראלי
                     </span>
                 </motion.div>
-            </main>
-        </div>
+            </main >
+        </div >
     );
 };
 

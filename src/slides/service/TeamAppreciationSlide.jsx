@@ -26,32 +26,32 @@ const TeamAppreciationSlide = ({ onNavigate }) => {
                 <span className="text-lg md:text-base">חזרה לתפריט הקטגוריות</span>
             </button>
 
-            <main className="max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center pt-24">
-                <header className="mb-24">
+            <main className="max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center pt-12">
+                <header className="mb-6">
                     <motion.h1
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-7xl md:text-[8.5rem] font-black text-brand-blue tracking-tighter leading-none"
+                        className="text-4xl md:text-[4rem] font-black text-brand-blue tracking-tighter leading-none"
                     >
                         גאווה בצוות: <br />
-                        <span className="text-brand-yellow drop-shadow-sm">דברים טובים שקורים היום</span>
+                        <span className="text-brand-yellow drop-shadow-sm text-3xl md:text-[3rem]">דברים טובים שקורים היום</span>
                     </motion.h1>
-                    <div className="w-64 h-4 bg-brand-yellow mt-6 rounded-full" />
+                    <div className="w-32 h-1.5 bg-brand-yellow mt-3 rounded-full" />
                 </header>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {successPoints.map((point, i) => (
                         <motion.div
                             key={i}
                             initial={{ opacity: 0, x: 50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: i * 0.15 }}
-                            className={`${point.bg} p-16 rounded-[4rem] flex items-center gap-10 border-4 border-gray-50 shadow-xl hover:shadow-2xl transition-all`}
+                            className={`${point.bg} p-6 rounded-[2rem] flex items-center gap-6 border-2 border-gray-50 shadow-md hover:shadow-lg transition-all`}
                         >
-                            <div className="bg-white p-8 rounded-full shadow-inner scale-110">
-                                <point.icon size={60} className={point.color} />
+                            <div className="bg-white p-4 rounded-full shadow-inner scale-100">
+                                <point.icon size={30} className={point.color} />
                             </div>
-                            <p className="text-4xl md:text-5xl font-black text-brand-dark-blue leading-tight">
+                            <p className="text-xl md:text-2xl font-black text-brand-dark-blue leading-tight">
                                 {point.text}
                             </p>
                         </motion.div>
@@ -62,9 +62,9 @@ const TeamAppreciationSlide = ({ onNavigate }) => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.8 }}
-                    className="mt-24 bg-brand-blue text-white p-20 rounded-[6rem] text-center shadow-[0_30px_100px_rgba(0,0,0,0.3)] relative border-8 border-brand-yellow/20"
+                    className="mt-6 bg-brand-blue text-white p-8 rounded-[3rem] text-center shadow-lg relative border-4 border-brand-yellow/20"
                 >
-                    <p className="text-5xl md:text-7xl font-black leading-tight italic">
+                    <p className="text-2xl md:text-3xl font-black leading-tight italic">
                         "הבסיס לשפה החדשה הוא הכוח המדהים <br /> שכבר קיים בכם היום!"
                     </p>
                 </motion.div>

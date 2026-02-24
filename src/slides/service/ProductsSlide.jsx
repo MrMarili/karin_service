@@ -25,7 +25,7 @@ const ProductsSlide = ({ onNavigate }) => {
                 <ArrowRight size={24} className="md:w-8 md:h-8" />
                 <span className="text-lg md:text-base">חזרה לתפריט</span>
             </button>
-            <h2 className="text-6xl md:text-[8rem] font-black text-brand-black mb-12 md:mb-20 relative z-10 max-w-full px-4">המהפכה במוצרים</h2>
+            <h2 className="text-5xl md:text-[6rem] font-black text-brand-black mb-8 md:mb-12 relative z-10 max-w-full px-4">המהפכה במוצרים</h2>
 
             <div className="flex flex-wrap justify-center gap-6 md:gap-12 w-full max-w-[95%] md:max-w-[90%] relative z-10 px-2 md:px-4 pb-20 md:pb-0 overflow-y-auto md:overflow-visible max-h-[60vh] md:max-h-none">
                 {products.map((item, i) => (
@@ -34,7 +34,7 @@ const ProductsSlide = ({ onNavigate }) => {
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.1 }}
-                        className="group relative w-[45%] sm:w-80 md:w-[22rem] aspect-square rounded-[2rem] md:rounded-[3rem] shadow-2xl md:shadow-3xl overflow-hidden border-4 md:border-8 border-white transform hover:-translate-y-4 transition-all duration-300"
+                        className="group relative w-[45%] sm:w-64 md:w-[18rem] aspect-square rounded-[2rem] shadow-2xl overflow-hidden border-4 md:border-6 border-white transform hover:-translate-y-4 transition-all duration-300"
                     >
                         <img
                             src={item.img}
@@ -48,7 +48,7 @@ const ProductsSlide = ({ onNavigate }) => {
                 ))}
             </div>
 
-            <p className="mt-12 md:mt-20 text-3xl md:text-5xl font-black text-brand-dark-blue max-w-5xl relative z-10 px-4 leading-tight">
+            <p className="mt-8 md:mt-12 text-2xl md:text-3xl font-black text-brand-dark-blue max-w-4xl relative z-10 px-4 leading-tight">
                 קולקציות חדשות שמתאימות בדיוק לצרכים של המשפחה הישראלית המודרנית.
             </p>
         </div>

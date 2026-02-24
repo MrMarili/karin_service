@@ -84,7 +84,7 @@ const SummarySection = () => {
     };
 
     return (
-        <div className="h-full w-full bg-brand-yellow flex flex-col p-16 relative overflow-hidden" dir="rtl">
+        <div className="h-full w-full bg-brand-yellow flex flex-col p-8 md:p-12 relative overflow-hidden" dir="rtl">
             {/* Background Music - NO LOOP */}
             <audio ref={audioRef} src="/background-music.mp3" loop={false} />
 
@@ -113,9 +113,9 @@ const SummarySection = () => {
                         <motion.div
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            className="mb-12"
+                            className="mb-6"
                         >
-                            <h2 className="text-[12rem] md:text-[20rem] font-black text-brand-blue leading-none drop-shadow-2xl">
+                            <h2 className="text-[6rem] md:text-[8.5rem] font-black text-brand-blue leading-none drop-shadow-2xl">
                                 תודה!
                             </h2>
                         </motion.div>
@@ -142,27 +142,27 @@ const SummarySection = () => {
                         </AnimatePresence>
 
                         {/* CUMULATIVE TEAM MEMBERS GRID */}
-                        <div className="w-full max-w-7xl flex flex-wrap justify-center gap-8 p-4">
+                        <div className="w-full max-w-6xl flex flex-wrap justify-center gap-4 p-2">
                             {visibleTeamIndices.map((index) => (
                                 <motion.div
                                     key={teamMembers[index].type}
                                     initial={{ opacity: 0, scale: 0.5, y: 30 }}
                                     animate={{ opacity: 1, scale: 1, y: 0 }}
-                                    className="bg-white border-4 border-brand-blue shadow-2xl rounded-[4rem] pl-10 pr-6 py-4 flex items-center gap-6"
+                                    className="bg-white border-2 border-brand-blue shadow-xl rounded-[2.5rem] pl-6 pr-4 py-2 flex items-center gap-4"
                                 >
-                                    <div className="scale-75 md:scale-95">
+                                    <div className="scale-60 md:scale-75">
                                         <PersonaAvatars
                                             type={teamMembers[index].type}
-                                            size={45}
+                                            size={35}
                                             hideLabel={true}
                                         />
                                     </div>
-                                    <span className="text-4xl md:text-5xl font-black text-brand-dark-blue">
+                                    <span className="text-2xl md:text-3xl font-black text-brand-dark-blue">
                                         {teamMembers[index].label}
                                     </span>
                                     {/* Red Blinking Heart */}
                                     <motion.div animate={heartPulse} className="text-red-500">
-                                        <Heart size={40} fill="currentColor" />
+                                        <Heart size={24} fill="currentColor" />
                                     </motion.div>
                                 </motion.div>
                             ))}
@@ -184,34 +184,34 @@ const SummarySection = () => {
                 )}
             </AnimatePresence>
 
-            <main className="max-w-7xl mx-auto w-full flex-1 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 pt-32">
+            <main className="max-w-7xl mx-auto w-full flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10 pt-16">
                 {/* Right Side: Content */}
                 <div className="flex flex-col justify-center order-2 lg:order-1 max-w-[80rem]">
-                    <header className="mb-8">
+                    <header className="mb-6 pt-4">
                         <motion.h1
                             initial={{ opacity: 0, x: 30 }}
                             animate={{ opacity: 1, x: 0 }}
-                            className="text-6xl md:text-[7rem] font-black text-brand-blue tracking-tighter leading-none"
+                            className="text-5xl md:text-[4.5rem] font-black text-brand-blue tracking-tighter leading-none"
                         >
                             לסיכום: <br />
                             <span className="text-brand-dark-blue">מרגישים בבית</span>
                         </motion.h1>
-                        <div className="w-48 h-2 bg-brand-blue mt-4 rounded-full" />
+                        <div className="w-32 h-1.5 bg-brand-blue mt-3 rounded-full" />
                     </header>
 
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                         {summaryPoints.map((point, i) => (
                             <motion.div
                                 key={point}
                                 initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 whileHover={{ scale: 1.02, x: -10 }}
-                                className="flex items-center gap-6 bg-white/95 shadow-lg p-6 rounded-[2.5rem] border-2 border-white border-r-[1rem] border-r-brand-blue"
+                                className="flex items-center gap-4 bg-white/95 shadow-md p-4 rounded-[1.5rem] border-2 border-white border-r-[0.6rem] border-r-brand-blue"
                             >
-                                <div className="bg-brand-yellow p-3 rounded-full shrink-0">
-                                    <CheckCircle size={32} className="text-brand-blue" />
+                                <div className="bg-brand-yellow p-2 rounded-full shrink-0">
+                                    <CheckCircle size={24} className="text-brand-blue" />
                                 </div>
-                                <p className="text-2xl md:text-[2.8rem] font-black text-brand-dark-blue leading-tight tracking-tight">
+                                <p className="text-xl md:text-[1.8rem] font-black text-brand-dark-blue leading-tight tracking-tight">
                                     {point}
                                 </p>
                             </motion.div>
@@ -222,7 +222,7 @@ const SummarySection = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1 }}
-                        className="mt-10 text-3xl md:text-[4.5rem] font-black text-brand-blue tracking-tight leading-tight"
+                        className="mt-4 text-2xl md:text-[2.8rem] font-black text-brand-blue tracking-tight leading-tight"
                     >
                         שמרת הזורע - סיפור אהבה ישראלי
                     </motion.div>
@@ -232,7 +232,7 @@ const SummarySection = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1.5 }}
                         onClick={handleFinish}
-                        className="mt-12 bg-brand-blue text-white px-12 py-6 rounded-full text-3xl font-black shadow-2xl hover:bg-brand-yellow hover:text-brand-blue transition-all flex items-center gap-4 group w-fit"
+                        className="mt-8 bg-brand-blue text-white px-8 py-4 rounded-full text-2xl font-black shadow-xl hover:bg-brand-yellow hover:text-brand-blue transition-all flex items-center gap-4 group w-fit"
                     >
                         סיום המצגת
                         <Heart className="group-hover:scale-125 transition-transform text-red-500" fill="currentColor" />
@@ -240,13 +240,13 @@ const SummarySection = () => {
                 </div>
 
                 {/* Left Side: Large Impressive Rotating House */}
-                <div className="flex flex-col justify-center items-center order-1 lg:order-2 h-full py-12 gap-8 relative">
+                <div className="flex flex-col justify-center items-center order-1 lg:order-2 h-full py-4 md:py-8 gap-4 relative">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8, rotateY: -180 }}
                         animate={{ opacity: 1, scale: 1, rotateY: 0 }}
                         transition={{ duration: 1.5, type: "spring" }}
                         whileHover={{ rotate: 360, transition: { duration: 20, repeat: Infinity, ease: "linear" } }}
-                        className="relative w-full max-w-2xl aspect-square flex items-center justify-center pt-24 cursor-pointer"
+                        className="relative w-full max-w-lg aspect-square flex items-center justify-center pt-8 cursor-pointer"
                     >
                         {/* Rotating Glow Background */}
                         <motion.div
@@ -266,7 +266,7 @@ const SummarySection = () => {
                             </svg>
                         </div>
 
-                        <div className="z-10 bg-white p-10 rounded-[3rem] shadow-2xl border-4 border-brand-blue/10 transform scale-125">
+                        <div className="z-10 bg-white p-6 rounded-[2rem] shadow-xl border-4 border-brand-blue/10 transform scale-100">
                             <Logo size="large" />
                         </div>
                     </motion.div>

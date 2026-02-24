@@ -49,7 +49,7 @@ const PersonaAvatars = ({ type, size = 120, label, className = "", delay = 0, dr
         <motion.div
             initial={dramaticEntry ? { opacity: 0, scale: 0 } : { opacity: 0, scale: 0.8 }}
             animate={dramaticEntry
-                ? { opacity: 1, scale: [0, 3.5, 3.5, 1] }
+                ? { opacity: 1, scale: [0, 2.2, 2.2, 1] }
                 : { opacity: 1, scale: 1 }
             }
             transition={dramaticEntry

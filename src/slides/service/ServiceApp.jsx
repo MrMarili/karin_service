@@ -21,6 +21,32 @@ const ServiceApp = () => {
     const [currentStep, setCurrentStep] = useState(0);
     const [direction, setDirection] = useState(0);
 
+    // Global Responsive Scaling: Adjusts root font-size based on viewport height
+    useEffect(() => {
+        const handleResize = () => {
+            const targetHeight = 1080; // Full HD reference
+            const currentHeight = window.innerHeight;
+
+            // Calculate scale. If height is small, reduce font size significantly.
+            let scale = currentHeight / targetHeight;
+
+            // Clamp scale between 0.4 (allow significant shrinking) and 1.0 (no over-scaling)
+            scale = Math.max(0.4, Math.min(1.0, scale));
+
+            // Apply scale to root element
+            document.documentElement.style.fontSize = `${16 * scale}px`;
+        };
+
+        handleResize(); // Initial call
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            // Reset on unmount
+            document.documentElement.style.fontSize = '16px';
+        };
+    }, []);
+
     // Structure matches SuccessStorySlide expectations (Menu at index 2)
     const slides = [
         { id: 'intro', component: IntroductionSection, props: { step: 0 } }, // 0
@@ -84,38 +110,38 @@ const ServiceApp = () => {
                 </AnimatePresence>
             </div>
 
-            {/* Navigation Overlay */}
-            <div className="fixed top-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-50">
-                <div className="flex items-center gap-6 bg-white/50 backdrop-blur-md p-4 rounded-full shadow-lg border border-white/20">
+            {/* Navigation Overlay - Now in top left */}
+            <div className="fixed top-6 left-6 flex flex-col items-start gap-3 z-50">
+                <div className="flex items-center gap-4 bg-white/40 backdrop-blur-md p-2 rounded-full shadow-lg border border-white/20">
                     <button
                         onClick={prevStep}
                         disabled={currentStep === 0}
-                        className="p-4 rounded-full bg-brand-blue text-white disabled:opacity-20 hover:scale-110 active:scale-95 transition-all shadow-md"
+                        className="p-3 rounded-full bg-brand-blue text-white disabled:opacity-20 hover:scale-110 active:scale-95 transition-all shadow-md"
                     >
-                        <ChevronRight size={32} />
+                        <ChevronRight size={24} />
                     </button>
-
-                    <div className="flex gap-2">
-                        {slides.map((_, i) => (
-                            <div
-                                key={i}
-                                className={`h-3 rounded-full transition-all duration-500 ${i === currentStep ? 'w-10 bg-brand-yellow' : 'w-3 bg-gray-300'}`}
-                            />
-                        ))}
-                    </div>
 
                     <button
                         onClick={nextStep}
                         disabled={currentStep === slides.length - 1}
-                        className="p-4 rounded-full bg-brand-blue text-white disabled:opacity-20 hover:scale-110 active:scale-95 transition-all shadow-md"
+                        className="p-3 rounded-full bg-brand-blue text-white disabled:opacity-20 hover:scale-110 active:scale-95 transition-all shadow-md"
                     >
-                        <ChevronLeft size={32} />
+                        <ChevronLeft size={24} />
                     </button>
+
+                    <div className="bg-brand-dark-blue/80 text-white px-4 py-1.5 rounded-full font-black text-xs shadow-xl">
+                        {currentStep + 1} / {slides.length}
+                    </div>
                 </div>
 
-                {/* Slide Counter - Now below the navigation */}
-                <div className="bg-brand-dark-blue/80 backdrop-blur-sm text-white px-6 py-1 rounded-full font-black text-sm shadow-xl">
-                    {currentStep + 1} / {slides.length}
+                {/* Dots indicator - smaller and subtle */}
+                <div className="flex gap-1 px-4">
+                    {slides.map((_, i) => (
+                        <div
+                            key={i}
+                            className={`h-1.5 rounded-full transition-all duration-500 ${i === currentStep ? 'w-6 bg-brand-yellow' : 'w-1.5 bg-gray-300/50'}`}
+                        />
+                    ))}
                 </div>
             </div>
         </div>
