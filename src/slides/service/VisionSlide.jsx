@@ -83,14 +83,14 @@ const VisionSlide = () => {
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1 }}
-                    className="mt-12 bg-brand-blue/5 border-2 border-brand-blue/10 p-8 rounded-[3rem] text-center shadow-inner relative overflow-hidden"
+                    className="mt-6 bg-brand-blue/5 border-2 border-brand-blue/10 p-8 rounded-[3rem] text-center shadow-inner relative overflow-hidden"
                 >
                     <div className="absolute top-0 right-0 w-24 h-24 bg-brand-yellow opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
                     <p className="text-2xl md:text-3xl font-black text-brand-blue mb-2">
                         הבית הישראלי הוא מרכז החיים ♥ מקום של משפחה, אירוח וחום.
                     </p>
                     <p className="text-xl md:text-2xl text-brand-dark-blue font-bold opacity-80">
-                        المטרה שלנו היא להבטיח שכל פריט שאנו יוצרים יתרום לתחושת השייכות והנוחות הזו.
+                        המטרה שלנו היא להבטיח שכל פריט שאנו יוצרים יתרום לתחושת השייכות והנוחות הזו.
                     </p>
                 </motion.div>
             </main>
